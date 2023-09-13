@@ -1,0 +1,17 @@
+import { useEffect, useState } from "react"
+
+export const Users = () => {
+    const [users, setUsers] = useState([]);
+    useEffect( ()=>{
+        fetch('https://jsonplaceholder.typicode.com/users')
+        .then(res => res.json())
+        .then(data=> setUsers(data))
+    } , [])
+    
+    
+    return (
+        <div className="box">
+            <h3>Users: {users.length}</h3>
+        </div>
+    )
+}
